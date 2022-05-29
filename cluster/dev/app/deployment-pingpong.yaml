@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: pingong
+  name: pingong
+  namespace: dev
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pingong
+  template:
+    metadata:
+      labels:
+        app: pingong
+    spec:
+      containers:
+      - image: alpine
+        name: alpine
+        args:
+        - ping
+        - 127.0.0.1
